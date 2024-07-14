@@ -13,7 +13,7 @@
         function downloadLink() {
             const link = decodeURIComponent(getLinkParameter());
             if (link) {
-                window.open(link, '_blank');
+                window.location.href = link.startsWith('http') ? link : `http://${link}`;
             } else {
                 alert("No link provided.");
             }
