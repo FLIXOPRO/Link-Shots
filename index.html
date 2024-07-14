@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Page</title>
+    <script>
+        function generateDownloadLink() {
+            const inputLink = document.getElementById("linkInput").value;
+            const encodedLink = encodeURIComponent(inputLink);
+            const downloadLink = `download.html?link=${encodedLink}`;
+            document.getElementById("copyBox").value = downloadLink;
+        }
+
+        function copyToClipboard() {
+            const copyBox = document.getElementById("copyBox");
+            copyBox.select();
+            copyBox.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("Link copied to clipboard: " + copyBox.value);
+        }
+    </script>
+</head>
+<body>
+    <h1>Link Page</h1>
+    <input type="text" id="linkInput" placeholder="Enter your link here">
+    <button onclick="generateDownloadLink()">Submit</button>
+    <input type="text" id="copyBox" readonly>
+    <button onclick="copyToClipboard()">Copy</button>
+</body>
+</html>
