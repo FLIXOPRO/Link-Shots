@@ -8,7 +8,7 @@
         function generateDownloadLink() {
             const inputLink = document.getElementById("linkInput").value;
             const encodedLink = encodeURIComponent(inputLink);
-            const downloadLink = `download.html?link=${encodedLink}`;
+            const downloadLink = `https://flixopro.github.io/Link-Shots/download.html?link=${encodedLink}`;
             document.getElementById("copyBox").value = downloadLink;
         }
 
