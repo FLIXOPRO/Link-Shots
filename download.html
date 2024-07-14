@@ -4,15 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
         }
         button {
             padding: 10px 20px;
             font-size: 1.2em;
             cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .icon-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .icon-button i {
+            margin-right: 10px;
+        }
+        .telegram-button {
+            background-color: #0088cc;
+            margin-top: 20px;
+        }
+        .telegram-button:hover {
+            background-color: #007bb5;
         }
     </style>
     <script>
@@ -32,7 +73,16 @@
     </script>
 </head>
 <body>
-    <h1>Download Page</h1>
-    <button onclick="downloadLink()">Download</button>
+    <div class="container">
+        <h1>ONE FLIX BD</h1>
+        <button class="icon-button" onclick="downloadLink()">
+            <i class="fas fa-download"></i>Download
+        </button>
+        <a href="https://t.me/oneflixbd_bot" target="_blank">
+            <button class="icon-button telegram-button">
+                <i class="fab fa-telegram-plane"></i>Join Our Telegram Channel
+            </button>
+        </a>
+    </div>
 </body>
 </html>
