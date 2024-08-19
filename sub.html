@@ -105,7 +105,7 @@
             setTimeout(function() {
                 document.getElementById("subscribe-button").innerHTML = "✅ Subscribed!";
                 document.getElementById("download-button").classList.add("unlocked"); // Unlock the download button
-            }, 2000); // 2 seconds delay before unlocking
+            }, 5000); // 2 seconds delay before unlocking
         });
 
         document.getElementById("download-button").addEventListener("click", function(e) {
@@ -113,7 +113,7 @@
                 e.preventDefault();
                 alert("Please subscribe to unlock the content!");
             } else {
-                window.location.href = "https://your-download-link.com"; // Replace with your actual download link
+                window.location.href = "timer.html?url=" + encodeURIComponent(new URLSearchParams(window.location.search).get('url'));
             }
         });
     </script>
