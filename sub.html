@@ -16,18 +16,6 @@
             height: 100vh;
         }
 
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .popup-content {
             background-color: #1a1a1a;
             padding: 20px;
@@ -36,15 +24,6 @@
             width: 90%;
             max-width: 400px;
             position: relative;
-        }
-
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 24px;
-            color: #fff;
-            cursor: pointer;
         }
 
         h2 {
@@ -71,6 +50,24 @@
             background-color: #cc0000;
         }
 
+        .download-button {
+            background-color: #6a5acd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .download-button:hover {
+            background-color: #483d8b;
+        }
+
+        .unlocked {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
         .progress {
             margin-top: 20px;
             margin-bottom: 20px;
@@ -88,58 +85,37 @@
             width: 100%;
             border-radius: 2px;
         }
-
-        .download-button {
-            background-color: #6a5acd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .download-button:hover {
-            background-color: #483d8b;
-        }
-
-        .download-button::before {
-            content: "\1F512";
-            font-size: 18px;
-            margin-right: 8px;
-        }
-
     </style>
 </head>
 <body>
-    
-        <div class="popup-content">
-         
-            <h2>Join the thousands of awesome people that have supported us.</h2>
-            <a href="#" id="subscribe-button" class="button subscribe-button">Subscribe on YouTube</a>
-            <div class="progress">
-                <h4>Unlock Progress</h4>
-                <div class="progress-bar"></div>
-            </div>
-            <a href="#" id="download-button" class="button download-button">Download</a>
+    <div class="popup-content">
+        <h2>Join the thousands of awesome people that have supported us.</h2>
+        <a href="#" id="subscribe-button" class="button subscribe-button">Subscribe on YouTube</a>
+        <div class="progress">
+            <h4>Unlock Progress</h4>
+            <div class="progress-bar"></div>
         </div>
+        <a href="#" id="download-button" class="button download-button">Download</a>
     </div>
 
     <script>
-        // Event listener for the Subscribe button
         document.getElementById("subscribe-button").addEventListener("click", function(e) {
             e.preventDefault();
-            window.open("https://youtube.com/@djmasterbd", "_blank"); // Opens your YouTube channel
-            localStorage.setItem('subscribed', 'true'); // Mark as subscribed in localStorage
+            window.open("https://youtube.com/@djmasterbd", "_blank"); // Open YouTube channel
+            setTimeout(function() {
+                document.getElementById("subscribe-button").innerHTML = "✅ Subscribed!";
+                document.getElementById("download-button").classList.add("unlocked"); // Unlock the download button
+            }, 2000); // 2 seconds delay before unlocking
         });
 
-        // Event listener for the Download button
         document.getElementById("download-button").addEventListener("click", function(e) {
-            e.preventDefault();
-            if (localStorage.getItem('subscribed') === 'true') {
-                window.location.href = "https://djmaster-templates.blogspot.com"; // Replace with your download link
-            } else {
+            if (!this.classList.contains("unlocked")) {
+                e.preventDefault();
                 alert("Please subscribe to unlock the content!");
+            } else {
+                window.location.href = "https://your-download-link.com"; // Replace with your actual download link
             }
         });
     </script>
 </body>
 </html>
-  
