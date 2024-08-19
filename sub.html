@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe to Unlock Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-content {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        h2 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 15px 0;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .subscribe-button {
+            background-color: #ff0000;
+        }
+
+        .subscribe-button:hover {
+            background-color: #cc0000;
+        }
+
+        .progress {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .progress h4 {
+            color: #aaa;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .progress-bar {
+            background-color: #444;
+            height: 4px;
+            width: 100%;
+            border-radius: 2px;
+        }
+
+        .download-button {
+            background-color: #6a5acd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .download-button:hover {
+            background-color: #483d8b;
+        }
+
+        .download-button::before {
+            content: "\1F512";
+            font-size: 18px;
+            margin-right: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    
+        <div class="popup-content">
+         
+            <h2>Join the thousands of awesome people that have supported us.</h2>
+            <a href="#" id="subscribe-button" class="button subscribe-button">Subscribe on YouTube</a>
+            <div class="progress">
+                <h4>Unlock Progress</h4>
+                <div class="progress-bar"></div>
+            </div>
+            <a href="#" id="download-button" class="button download-button">Download</a>
+        </div>
+    </div>
+
+    <script>
+        // Event listener for the Subscribe button
+        document.getElementById("subscribe-button").addEventListener("click", function(e) {
+            e.preventDefault();
+            window.open("https://youtube.com/@djmasterbd", "_blank"); // Opens your YouTube channel
+            localStorage.setItem('subscribed', 'true'); // Mark as subscribed in localStorage
+        });
+
+        // Event listener for the Download button
+        document.getElementById("download-button").addEventListener("click", function(e) {
+            e.preventDefault();
+            if (localStorage.getItem('subscribed') === 'true') {
+                window.location.href = "https://djmaster-templates.blogspot.com"; // Replace with your download link
+            } else {
+                alert("Please subscribe to unlock the content!");
+            }
+        });
+    </script>
+</body>
+</html>
+  
